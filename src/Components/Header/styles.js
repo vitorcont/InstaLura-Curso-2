@@ -12,6 +12,8 @@ const style=StyleSheet.create({
     header:{
         flexDirection:'row',
         alignItems:'center',
+        borderTopColor:'gray',
+        borderTopWidth:0.5,
     }
 })
 

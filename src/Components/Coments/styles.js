@@ -4,18 +4,19 @@ import {StyleSheet,Dimensions} from 'react-native'
 const largura = Dimensions.get('window').width
 const style=StyleSheet.create({
     imagem:{
-      width: largura,
-      height: largura,
+      width: largura/16,
+      height: largura/16,
     },
-    like:{
-      width:largura/14,
-      height:largura/14
+    inline:{
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'space-between',
+        height:35,
     },
-    numLikes:{
-      flexDirection:'row',
-      alignItems:'center'
+    textInput:{
+      flex:1
     },
-    desc:{
+    container:{
       marginHorizontal:largura*0.02,
       marginTop:5,
     }
