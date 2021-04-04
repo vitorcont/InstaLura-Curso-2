@@ -1,11 +1,10 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { Image, Text, TouchableOpacity, View } from 'react-native'
 import style from './styles'
-import { LikeImg, LikePic } from '../../Services/likes'
 
 
 
-const Picture = ({ usuario, urlImage, desc, qntLikes }) => {
+const Picture = ({ usuario, urlImage, desc, qntLikes,LikeImg,LikePic }) => {
     const [curtiu, setCurtiu] = useState(false)
     const [likes, setLikes] = useState(qntLikes)
     const clickLike = () => {

@@ -1,52 +1,22 @@
 /* eslint-disable prettier/prettier */
 import React, { Fragment, useEffect, useState } from 'react';
-import { Text, Image, ScrollView, Dimensions, StyleSheet, FlatList } from 'react-native'
-import Header from './src/Components/Header/index'
-import Picture from './src/Components/Picture/index';
-import lerFotos from './src/Services/feed'
-import Coments from './src/Components/Coments/index'
+import { Text, Image, ScrollView, Dimensions, StyleSheet, FlatList, StatusBar } from 'react-native'
+import Feed from './src/Screens/Feed/Feed'
+import Login from './src/Screens/Login/Login'
+import {createStackNavigator} from '@react-navigation/stack'
+import { NavigationContainer } from '@react-navigation/native';
+
+const Stack = createStackNavigator()
 
 const App = () => {
-  const [fotos, setFotos] = useState([])
-
-  useEffect(() => {
-    lerFotos(setFotos)
-  }, [])
   return (
-    <>
-      <FlatList
-        data={fotos}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) =>
-          <>
-            <Header
-              usuario={item.userName}
-              urlImage={item.userURL}
-            />
-            <Picture
-              usuario={item.userName}
-              urlImage={item.url}
-              desc={item.description}
-              qntLikes={item.likes}
-            />
-            <Coments 
-              coments={item.comentarios} 
-            />
-          </>
-        }
-      />
-    </>
-
+    <NavigationContainer header>
+      <Stack.Navigator headerMode={"none"}>
+        <Stack.Screen name="Login" component={Login}/>
+        <Stack.Screen name="Feed" component={Feed}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 };
-
-const largura = Dimensions.get('window').width
-const style = StyleSheet.create({
-  imagem: {
-    width: largura,
-    height: largura,
-  }
-})
-
 
 export default App;

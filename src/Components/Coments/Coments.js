@@ -4,16 +4,12 @@ import { FlatList, Image, Text, TextInput, TouchableOpacity, View } from 'react-
 import style from './styles'
 
 
-const Coments = ({ coments }) => {
+const Coments = ({ coments,novoComent }) => {
     const [comentarios, setComentario] = useState(coments)
     const addComent = () => {
         Input.clear();
-        const newComent = {
-            date: Date.now,
-            text: InputContent,
-            userName: "Vitor",
-        }
-        setComentario([...comentarios,newComent])
+        const novo=novoComent("Vitor",InputContent)
+        setComentario([...comentarios,novo])
     }
     let Input;
     let InputContent = "";
